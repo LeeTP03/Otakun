@@ -7,8 +7,11 @@ import discord.ui
 
 class PaginationView(View):
     current_page = 1
-    
-    async def send(self, ctx):
+
+    async def send(
+        self,
+        ctx,
+    ):
         if self.items[0] == "Error":
             await ctx.send("Manga not hosted on MangaDex :(")
             return
@@ -16,9 +19,9 @@ class PaginationView(View):
         await self.update_message(self.items[self.current_page - 1])
 
     def create_embed(self, data):
-        embed = Embed(title="Test Manga", description="Test Manga Description")
+        embed = Embed(title=self.manga_title, description=f"Chapter {self.chapter_number} {'' if self.chapter_title is None else ':' + self.chapter_title}")
         embed.set_image(url=data)
-        
+
         embed.set_footer(text=f"Page {self.current_page}")
         return embed
 
@@ -116,7 +119,7 @@ class Manga(commands.Cog):
             label="Read Here", style=ButtonStyle.blurple, custom_id="read_here_button"
         )
 
-        read_here_button.callback = self.hello_call
+        read_here_button.callback = self.read_here
         self.latest_chapter = result.latest_chapter_id
         self.manga = result
 
@@ -126,7 +129,7 @@ class Manga(commands.Cog):
 
         await ctx.send(embed=embed, view=view)
 
-    async def hello_call(self, interaction):
+    async def read_here(self, interaction):
         pages = self.manga.get_chapter_pages()
         pages = [
             i.replace(
@@ -137,13 +140,15 @@ class Manga(commands.Cog):
         ]
         print(pages)
         view = PaginationView()
+        view.chapter_title = self.manga.latest_chapter_title
+        view.chapter_number = self.manga.latest_chapter_number
+        view.manga_title = self.manga.title
         view.items = pages
         await view.send(interaction.channel)
 
     @commands.command()
     async def testmanga(self, ctx, arg):
-        data = [
-            1,2,3,4,5,6,7,8,9,10]
+        data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         view = PaginationView()
         view.items = data
         await view.send(ctx)

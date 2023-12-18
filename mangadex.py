@@ -68,7 +68,9 @@ class MangaDexAPI:
         m_status = m_attributes["status"]
         m_demographic = m_attributes["publicationDemographic"]
         m_tags = []
-        m_latest_chapter = self.get_latest_link(latest_chapter)
+        m_latest_chapter, m_latest_chapter_title, m_latest_chapter_number = self.get_latest_link(
+            latest_chapter
+        )
         m_latest_chapter_id = latest_chapter
 
         for i in m_attributes["tags"]:
@@ -97,15 +99,25 @@ class MangaDexAPI:
             m_tags,
             m_latest_chapter,
             m_latest_chapter_id,
+            m_latest_chapter_number,
+            m_latest_chapter_title
         )
         return m
 
     def get_latest_link(self, id):
         r = requests.get(f"{self.api_url}/chapter/{id}")
         if r.json()["data"]["attributes"]["externalUrl"] == None:
-            return f"https://mangadex.org/chapter/{id}"
+            return [
+                f"https://mangadex.org/chapter/{id}",
+                r.json()["data"]["attributes"]["title"],
+                r.json()["data"]["attributes"]["chapter"],
+            ]
         else:
-            return r.json()["data"]["attributes"]["externalUrl"]
+            return [
+                r.json()["data"]["attributes"]["externalUrl"],
+                r.json()["data"]["attributes"]["title"],
+                r.json()["data"]["attributes"]["chapter"],
+            ]
 
 
 class Manga:
@@ -125,6 +137,8 @@ class Manga:
         tags,
         latest_chapter,
         latest_chapter_id,
+        latest_chapter_number,
+        latest_chapter_title
     ):
         self.title = title
         self.id = id
@@ -140,6 +154,8 @@ class Manga:
         self.tags = tags
         self.latest_chapter = latest_chapter
         self.latest_chapter_id = latest_chapter_id
+        self.latest_chapter_number = latest_chapter_number
+        self.latest_chapter_title = latest_chapter_title
 
     def get_cover(self):
         return f"https://fxmangadex.org/covers/{self.id}/{self.cover_filename}"
@@ -149,7 +165,7 @@ class Manga:
         return f"https://mangadex.org/title/{self.id}/{title_name}"
 
     def get_chapter_pages(self):
-        c = Chapter(self.latest_chapter_id)
+        c = Chapter(self.title, self.latest_chapter_id)
         return c.get_pages()
 
     def get_tags(self):
@@ -169,7 +185,12 @@ class Manga:
 
 
 class Chapter:
-    def __init__(self, chapter_id: str) -> None:
+    def __init__(
+        self,
+        manga_title,
+        chapter_id: str,
+    ) -> None:
+        self.manga_title = manga_title
         self.chapter_id = chapter_id
         self.hash = ""
         self.base_url = ""
@@ -182,10 +203,10 @@ class Chapter:
         with open("output.json", "w") as f:
             json.dump(r.json(), f, indent=4)
         self.result = r.json()["result"]
-        
+
         if self.result == "error":
             return
-        
+
         self.hash = r.json()["chapter"]["hash"]
         self.base_url = r.json()["baseUrl"]
         self.data = r.json()["chapter"]["dataSaver"]
@@ -201,5 +222,6 @@ class Chapter:
 
 if __name__ == "__main__":
     m = MangaDexAPI()
-    s = m.get_manga("one piece")
+    s = m.get_manga("my hero academia")
+    print(s.latest_chapter_id)
     print(s.get_chapter_pages())
