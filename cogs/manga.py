@@ -13,16 +13,21 @@ class PaginationView(View):
         ctx,
     ):
         if self.items[0] == "Error":
-            await ctx.send("Manga not hosted on MangaDex :(")
+            await ctx.send(
+                f"Manga not hosted on MangaDex :( \nRead here instead {self.chapter_link}"
+            )
             return
         self.message = await ctx.send(view=self)
         await self.update_message(self.items[self.current_page - 1])
 
     def create_embed(self, data):
-        embed = Embed(title=self.manga_title, description=f"Chapter {self.chapter_number} {'' if self.chapter_title is None else ':' + self.chapter_title}")
+        embed = Embed(
+            title=self.manga_title,
+            description=f"Chapter {self.chapter_number} {'' if self.chapter_title is None else ':' + self.chapter_title}",
+        )
         embed.set_image(url=data)
 
-        embed.set_footer(text=f"Page {self.current_page}")
+        embed.set_footer(text=f"Page {self.current_page}/{len(self.items)}")
         return embed
 
     async def update_message(self, data):
@@ -86,7 +91,7 @@ class Manga(commands.Cog):
 
     @commands.command()
     async def search(self, ctx, *, message):
-        await ctx.send(f"Searching for manga {message}")
+        await ctx.send(f"Searching for {message.title()}")
 
         # Getting manga
         api_fetcher = MangaDexAPI()
@@ -111,25 +116,32 @@ class Manga(commands.Cog):
 
         # Buttons
         view = View()
-        open_website_button = Button(label="Open Website", url=result.get_manga_site())
-        latest_chapter_button = Button(
-            label="Latest Chapter", url=result.latest_chapter
-        )
-        read_here_button = Button(
-            label="Read Here", style=ButtonStyle.blurple, custom_id="read_here_button"
-        )
 
-        read_here_button.callback = self.read_here
+        if not result.latest_chapter_id == "No Chapters Found":
+            read_here_button = Button(
+                label="Read Here",
+                style=ButtonStyle.blurple,
+                custom_id="read_here_button",
+            )
+            read_here_button.callback = self.read_here
+            view.add_item(read_here_button)
+
         self.latest_chapter = result.latest_chapter_id
         self.manga = result
 
-        view.add_item(read_here_button)
+        open_website_button = Button(label="Open Website", url=result.get_manga_site())
         view.add_item(open_website_button)
-        view.add_item(latest_chapter_button)
+
+        if not result.latest_chapter_id == "No Chapters Found":
+            latest_chapter_button = Button(
+                label="Latest Chapter", url=result.latest_chapter
+            )
+            view.add_item(latest_chapter_button)
 
         await ctx.send(embed=embed, view=view)
 
     async def read_here(self, interaction):
+        await interaction.response.defer()
         pages = self.manga.get_chapter_pages()
         pages = [
             i.replace(
@@ -143,13 +155,23 @@ class Manga(commands.Cog):
         view.chapter_title = self.manga.latest_chapter_title
         view.chapter_number = self.manga.latest_chapter_number
         view.manga_title = self.manga.title
+        view.chapter_link = self.manga.latest_chapter
         view.items = pages
         await view.send(interaction.channel)
 
     @commands.command()
     async def testmanga(self, ctx, arg):
-        data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        data = [
+            "https://fxmangadex.org/data-saver/9e8730cd7cc45637b7ee0173418374cc/1-dbf32b8bda59b3700c18b54a2f9b58559f3565bc1458a4501794fef4e13fa40f.jpg",
+            "https://fxmangadex.org/data-saver/9e8730cd7cc45637b7ee0173418374cc/2-3e73682c18cbce64f666740cc0bb0b49660988ff3c607b2a0968b6ac9b813324.jpg",
+            "https://fxmangadex.org/data-saver/9e8730cd7cc45637b7ee0173418374cc/3-d443d3824cb3f86ef076e1aaedeecb16431a4364fc6e651339df2f6ee3d0ba8f.jpg",
+            "https://fxmangadex.org/data-saver/9e8730cd7cc45637b7ee0173418374cc/4-67a3bb5719c67427faebee1a35bb6dc021ff40e7b6b8bb2cbe671c9ac81a7a7d.jpg",
+        ]
         view = PaginationView()
+        view.chapter_title = self.manga.latest_chapter_title
+        view.chapter_number = self.manga.latest_chapter_number
+        view.manga_title = self.manga.title
+        view.chapter_link = self.manga.latest_chapter
         view.items = data
         await view.send(ctx)
 

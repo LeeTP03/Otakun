@@ -12,7 +12,7 @@ class MangaDexAPI:
         self.search_headers = {"Content-Type": "application/json"}
 
     def get_manga(self, arg):
-        order = {"rating": "desc", "followedCount": "desc"}
+        order = {"relevance": "desc"}
         final_order_query = {}
         languages = ["en"]
         chapter_order = {
@@ -52,7 +52,14 @@ class MangaDexAPI:
                 "order[readableAt]": "desc",
             },
         )
-        newest_chapter = latest_chapter_response.json()["data"][0]["id"]
+        with open("output1.json", "w") as f:
+            json.dump(latest_chapter_response.json(), f, indent=4)
+        
+        if latest_chapter_response.json()["data"] == []:
+            newest_chapter = "No Chapters Found"
+        else:
+            newest_chapter = latest_chapter_response.json()["data"][0]["id"]
+            
         res_manga = self.initialise_manga(single_response, newest_chapter)
         return res_manga
 
@@ -62,16 +69,30 @@ class MangaDexAPI:
 
         m_title = m_attributes["title"]["en"]
         m_id = response.json()["data"]["id"]
-        m_description = m_attributes["description"]["en"]
+
+        if "en" in m_attributes["description"]:
+            m_description = m_attributes["description"]["en"]
+        else:
+            m_description = ""
+
         m_chapter_number = m_attributes["lastChapter"]
         m_volume_number = m_attributes["lastVolume"]
         m_status = m_attributes["status"]
         m_demographic = m_attributes["publicationDemographic"]
         m_tags = []
-        m_latest_chapter, m_latest_chapter_title, m_latest_chapter_number = self.get_latest_link(
-            latest_chapter
-        )
-        m_latest_chapter_id = latest_chapter
+        
+        if latest_chapter == "No Chapters Found":
+            m_latest_chapter = "No Chapters Found"
+            m_latest_chapter_title = "No Chapters Found"
+            m_latest_chapter_number = "No Chapters Found"
+            m_latest_chapter_id = "No Chapters Found"
+        else:
+            (
+                m_latest_chapter,
+                m_latest_chapter_title,
+                m_latest_chapter_number,
+            ) = self.get_latest_link(latest_chapter)
+            m_latest_chapter_id = latest_chapter
 
         for i in m_attributes["tags"]:
             m_tags.append(i["attributes"]["name"]["en"])
@@ -100,7 +121,7 @@ class MangaDexAPI:
             m_latest_chapter,
             m_latest_chapter_id,
             m_latest_chapter_number,
-            m_latest_chapter_title
+            m_latest_chapter_title,
         )
         return m
 
@@ -138,7 +159,7 @@ class Manga:
         latest_chapter,
         latest_chapter_id,
         latest_chapter_number,
-        latest_chapter_title
+        latest_chapter_title,
     ):
         self.title = title
         self.id = id
@@ -147,10 +168,10 @@ class Manga:
         self.cover_filename = cover_filename
         self.number_of_chapters = "N/A" if chapter_number == "" else chapter_number
         self.number_of_volumes = "N/A" if volume_number == "" else volume_number
-        self.author = author
+        self.author = "N/A" if author == "" else author
         self.author_twitter = author_twitter
         self.status = status
-        self.demographic = demographic
+        self.demographic = "N/A" if demographic == None else demographic
         self.tags = tags
         self.latest_chapter = latest_chapter
         self.latest_chapter_id = latest_chapter_id
@@ -207,6 +228,10 @@ class Chapter:
         if self.result == "error":
             return
 
+        if r.json()["chapter"]["dataSaver"] == []:
+            self.result = "error"
+            return
+
         self.hash = r.json()["chapter"]["hash"]
         self.base_url = r.json()["baseUrl"]
         self.data = r.json()["chapter"]["dataSaver"]
@@ -222,6 +247,7 @@ class Chapter:
 
 if __name__ == "__main__":
     m = MangaDexAPI()
-    s = m.get_manga("my hero academia")
+    s = m.get_manga("eden")
     print(s.latest_chapter_id)
-    print(s.get_chapter_pages())
+    print(s.description)
+    print(s.id)

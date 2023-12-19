@@ -34,9 +34,8 @@ async def on_message(message):
 
     if message.content.startswith("<"):
         if message.content.endswith(">"):
-            manga = bot.get_cog("Manga")
-            if manga is not None:
-                await manga.search(message[1:-1])
+            command = bot.get_command('search')
+            await command.invoke
             await message.channel.send("Hello!")
     
     await bot.process_commands(message)
