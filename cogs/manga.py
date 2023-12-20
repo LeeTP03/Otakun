@@ -90,7 +90,7 @@ class Manga(commands.Cog):
         self.ctx = None
 
     @commands.command()
-    async def search(self, ctx, *, message):
+    async def manga(self, ctx, *, message):
         await ctx.send(f"Searching for {message.title()}")
 
         # Getting manga

@@ -1,2 +1,641 @@
-[2023-12-20 02:23:18] [INFO    ] discord.client: logging in using static token
-[2023-12-20 02:23:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: fd3e64d5564b47b72f6d520ebfe75034).
+[2023-12-20 17:25:08] [INFO    ] discord.client: logging in using static token
+[2023-12-20 17:25:09] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 58bc450b2ebf8f2146fb22e0273e49ed).
+[2023-12-20 17:27:17] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 51, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items[self.selected_option - 1])
+                                         ~~~~~~~~~~~~~~~~~~~~~^~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+[2023-12-20 17:27:35] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 51, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items[self.selected_option - 1])
+                                         ~~~~~~~~~~~~~~~~~~~~~^~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+[2023-12-20 17:27:37] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <Select placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='1' value='1' description=None emoji=None default=False>, <SelectOption label='2' value='2' description=None emoji=None default=False>, <SelectOption label='3' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 28, in select_menu
+    self.selected_option = select.values[0]
+                           ^^^^^^^^^^^^^
+AttributeError: 'Interaction' object has no attribute 'values'
+[2023-12-20 17:27:44] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <Select placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='1' value='1' description=None emoji=None default=False>, <SelectOption label='2' value='2' description=None emoji=None default=False>, <SelectOption label='3' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 28, in select_menu
+    self.selected_option = select.values[0]
+                           ^^^^^^^^^^^^^
+AttributeError: 'Interaction' object has no attribute 'values'
+[2023-12-20 17:29:22] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 51, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 16, in update_message
+    await self.message.edit(embed=self.create_embed(data), view=self)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\message.py", line 2265, in edit
+    with handle_message_parameters(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\http.py", line 178, in handle_message_parameters
+    payload['embeds'] = [embed.to_dict()]
+                         ^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'to_dict'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'coroutine' object has no attribute 'to_dict'
+[2023-12-20 17:29:24] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <Select placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='1' value='1' description=None emoji=None default=False>, <SelectOption label='2' value='2' description=None emoji=None default=False>, <SelectOption label='3' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 28, in select_menu
+    self.selected_option = select.values[0]
+                           ^^^^^^^^^^^^^
+AttributeError: 'Interaction' object has no attribute 'values'
+[2023-12-20 17:31:57] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "Rcog" is not found
+[2023-12-20 17:32:20] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 51, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 16, in update_message
+    await self.message.edit(embed=self.create_embed(data), view=self)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\message.py", line 2265, in edit
+    with handle_message_parameters(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\http.py", line 178, in handle_message_parameters
+    payload['embeds'] = [embed.to_dict()]
+                         ^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'to_dict'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'coroutine' object has no attribute 'to_dict'
+[2023-12-20 17:34:24] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 51, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 20, in update_message
+    await self.message.edit(embed=self.create_embed(data), view=self)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\message.py", line 2265, in edit
+    with handle_message_parameters(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\http.py", line 178, in handle_message_parameters
+    payload['embeds'] = [embed.to_dict()]
+                         ^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'to_dict'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'coroutine' object has no attribute 'to_dict'
+[2023-12-20 17:35:34] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 51, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items[self.selected_option - 1])
+                                         ~~~~~~~~~~~~~~~~~~~~~^~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+[2023-12-20 17:39:25] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command rcog
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 935, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 8, in <module>
+    class AnimeView(View):
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 28, in AnimeView
+    @discord.ui.select(placeholder="Select an option", options=create_options())
+                                                               ^^^^^^^^^^^^^^^^
+TypeError: AnimeView.create_options() missing 1 required positional argument: 'self'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\main.py", line 45, in rcog
+    await bot.reload_extension(f"cogs.{arg}")
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1117, in reload_extension
+    await self.load_extension(name)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1013, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 938, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.anime' raised an error: TypeError: AnimeView.create_options() missing 1 required positional argument: 'self'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: ExtensionFailed: Extension 'cogs.anime' raised an error: TypeError: AnimeView.create_options() missing 1 required positional argument: 'self'
+[2023-12-20 17:42:51] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command rcog
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 935, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 8, in <module>
+    class AnimeView(View):
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 26, in AnimeView
+    for i in len(items):
+TypeError: 'int' object is not iterable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\main.py", line 45, in rcog
+    await bot.reload_extension(f"cogs.{arg}")
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1117, in reload_extension
+    await self.load_extension(name)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1013, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 938, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.anime' raised an error: TypeError: 'int' object is not iterable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: ExtensionFailed: Extension 'cogs.anime' raised an error: TypeError: 'int' object is not iterable
+[2023-12-20 17:54:32] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command rcog
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 935, in _load_from_module_spec
+    spec.loader.exec_module(lib)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 8, in <module>
+    class AnimeView(View):
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 31, in AnimeView
+    select_menu.add_option(SelectOption(label="1", value="1"))
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'add_option'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\main.py", line 45, in rcog
+    await bot.reload_extension(f"cogs.{arg}")
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1117, in reload_extension
+    await self.load_extension(name)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1013, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 938, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'cogs.anime' raised an error: AttributeError: 'function' object has no attribute 'add_option'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: ExtensionFailed: Extension 'cogs.anime' raised an error: AttributeError: 'function' object has no attribute 'add_option'
+[2023-12-20 17:54:58] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 42, in get_by_title
+    view = AnimeView(query_anime)
+           ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: View.__init__() takes 1 positional argument but 2 were given
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: View.__init__() takes 1 positional argument but 2 were given
+[2023-12-20 17:55:23] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 51, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items[self.selected_option - 1])
+                                         ~~~~~~~~~~~~~~~~~~~~~^~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+[2023-12-20 17:55:51] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 89, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 51, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 20, in update_message
+    await self.message.edit(embed=self.create_embed(data), view=self)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 16, in create_embed
+    embed = Embed(title=data.anime_title)
+                        ^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'anime_title'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'list' object has no attribute 'anime_title'
+[2023-12-20 17:57:09] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 90, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 52, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items[int(self.selected_option) - 1])
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+[2023-12-20 17:58:04] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 94, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 56, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 13, in send
+    await self.update_message(self.items[int(self.selected_option) - 1])
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+[2023-12-20 17:59:01] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <Select placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='1' value='1' description=None emoji=None default=False>, <SelectOption label='2' value='2' description=None emoji=None default=False>, <SelectOption label='3' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 32, in select_menu
+    print(select.values)
+          ^^^^^^^^^^^^^
+AttributeError: 'Interaction' object has no attribute 'values'
+[2023-12-20 17:59:06] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <Select placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='1' value='1' description=None emoji=None default=False>, <SelectOption label='2' value='2' description=None emoji=None default=False>, <SelectOption label='3' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 32, in select_menu
+    print(select.values)
+          ^^^^^^^^^^^^^
+AttributeError: 'Interaction' object has no attribute 'values'
+[2023-12-20 18:01:29] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <Select placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='1' value='1' description=None emoji=None default=False>, <SelectOption label='2' value='2' description=None emoji=None default=False>, <SelectOption label='3' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 33, in select_menu
+    self.selected_option = select.values
+                           ^^^^^^^^^^^^^
+AttributeError: 'Interaction' object has no attribute 'values'
+[2023-12-20 18:01:59] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <Select placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='1' value='1' description=None emoji=None default=False>, <SelectOption label='2' value='2' description=None emoji=None default=False>, <SelectOption label='3' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 33, in select_menu
+    self.selected_option = select.values
+                           ^^^^^^^^^^^^^
+AttributeError: 'Interaction' object has no attribute 'values'
+[2023-12-20 18:06:41] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command find
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 95, in find
+    anime = await api_search.get_by_title(ctx, arg)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 57, in get_by_title
+    await view.send(ctx)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 20, in send
+    self.add_item(AnimeSelect(self.items))
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 10, in __init__
+    options = [SelectOption(label=f"{data[i].anime_title}", value=f"{i+1}") for i in len(data)]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not iterable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: 'int' object is not iterable
+[2023-12-20 18:09:27] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <AnimeSelect placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='Jujutsu Kaisen' value='1' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen 0 Movie' value='2' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen Official PV' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 15, in callback
+    self.view.set_selected_option(interaction, self.values)
+TypeError: AnimeView.set_selected_option() takes 2 positional arguments but 3 were given
+[2023-12-20 18:09:30] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <AnimeSelect placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='Jujutsu Kaisen' value='1' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen 0 Movie' value='2' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen Official PV' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 15, in callback
+    self.view.set_selected_option(interaction, self.values)
+TypeError: AnimeView.set_selected_option() takes 2 positional arguments but 3 were given
+[2023-12-20 18:09:32] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <AnimeSelect placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='Jujutsu Kaisen' value='1' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen 0 Movie' value='2' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen Official PV' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 15, in callback
+    self.view.set_selected_option(interaction, self.values)
+TypeError: AnimeView.set_selected_option() takes 2 positional arguments but 3 were given
+[2023-12-20 18:10:14] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <AnimeSelect placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='Jujutsu Kaisen' value='1' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen 0 Movie' value='2' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen Official PV' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 15, in callback
+    self.view.set_selected_option(interaction, self.values)
+TypeError: AnimeView.set_selected_option() takes 2 positional arguments but 3 were given
+[2023-12-20 18:10:17] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <AnimeSelect placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='Jujutsu Kaisen' value='1' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen 0 Movie' value='2' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen Official PV' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 15, in callback
+    self.view.set_selected_option(interaction, self.values)
+TypeError: AnimeView.set_selected_option() takes 2 positional arguments but 3 were given
+[2023-12-20 18:11:57] [ERROR   ] discord.ui.view: Ignoring exception in view <AnimeView timeout=180.0 children=1> for item <AnimeSelect placeholder='Select an option' min_values=1 max_values=1 disabled=False options=[<SelectOption label='Jujutsu Kaisen' value='1' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen 0 Movie' value='2' description=None emoji=None default=False>, <SelectOption label='Jujutsu Kaisen Official PV' value='3' description=None emoji=None default=False>]>
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ui\view.py", line 427, in _scheduled_task
+    await item.callback(interaction)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 15, in callback
+    await self.view.set_selected_option(interaction, self.values)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 41, in set_selected_option
+    await self.update_message(self.items)
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 35, in update_message
+    await self.message.edit(embed=self.create_embed(data), view=self)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\cogs\anime.py", line 29, in create_embed
+    data = data[int(self.selected_option) - 1]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'list'
+[2023-12-20 18:21:13] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command rcog
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\main.py", line 45, in rcog
+    await bot.reload_extension(f"cogs.{arg}")
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1102, in reload_extension
+    raise errors.ExtensionNotLoaded(name)
+discord.ext.commands.errors.ExtensionNotLoaded: Extension 'cogs.mangaa' has not been loaded.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: ExtensionNotLoaded: Extension 'cogs.mangaa' has not been loaded.
+[2023-12-20 18:23:10] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command rcog
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\main.py", line 45, in rcog
+    await bot.reload_extension(f"cogs.{arg}")
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1102, in reload_extension
+    raise errors.ExtensionNotLoaded(name)
+discord.ext.commands.errors.ExtensionNotLoaded: Extension 'cogs.greeting' has not been loaded.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: ExtensionNotLoaded: Extension 'cogs.greeting' has not been loaded.
+[2023-12-20 18:23:13] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command rcog
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\lyfes\Documents\Coding\MangaArc\main.py", line 45, in rcog
+    await bot.reload_extension(f"cogs.{arg}")
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1102, in reload_extension
+    raise errors.ExtensionNotLoaded(name)
+discord.ext.commands.errors.ExtensionNotLoaded: Extension 'cogs.greeetings' has not been loaded.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lyfes\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: ExtensionNotLoaded: Extension 'cogs.greeetings' has not been loaded.
+[2023-12-20 18:43:02] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "search" is not found
+[2023-12-20 18:43:33] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "anime/>manga" is not found
