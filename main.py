@@ -4,6 +4,7 @@ import logging
 import asyncio
 import discord
 from discord.ext import commands
+import json
 
 load_dotenv()
 bot_token = os.getenv("BOT_TOKEN")
@@ -11,8 +12,14 @@ bot_token = os.getenv("BOT_TOKEN")
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix=">", intents=intents)
+with open("settings.json", "r") as f:
+    settings = json.load(f)
+    bot_prefix = settings["prefix"]
+
+bot = commands.Bot(command_prefix=bot_prefix, intents=intents, status=discord.Status.online, activity=discord.Game(name=f"prefix is {bot_prefix}"), help_command=None)
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="w")
+
+
  
 async def load():
     for filename in os.listdir("./cogs"):

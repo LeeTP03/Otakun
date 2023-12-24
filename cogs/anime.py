@@ -54,8 +54,8 @@ class JikanAPI(commands.Cog):
         self.jikan = Jikan()
         self.bot = bot
 
-    async def get_by_title(self, ctx, title):
-        response = self.jikan.search(search_type="anime", query=title, parameters={"limit": 3})
+    async def get_by_title(self, ctx, title, limit=3):
+        response = self.jikan.search(search_type="anime", query=title, parameters={"limit": limit})
         query_anime = [AnimeData(i) for i in response["data"]]
         
         view = AnimeView()
@@ -102,8 +102,14 @@ class Anime(commands.Cog):
     
     @commands.command()
     async def anime(self, ctx, *, arg):
+        delim = arg.split("~")
+        await ctx.send(f"Searching for {delim[0].title()}")
         api_search = self.bot.get_cog("JikanAPI")
-        await api_search.get_by_title(ctx, arg)
+        
+        if len(delim) > 1:
+            await api_search.get_by_title(ctx, delim[0], delim[1])
+        else:
+            await api_search.get_by_title(ctx, delim[0])
        
         
 async def setup(bot):
