@@ -23,7 +23,6 @@ class DeeplAPI(commands.Cog):
 
     def translate_en(self, message):
         result = self.translator.translate_text(message, target_lang="EN-GB")
-        print(result)
         return result
     
     def translate_jp(self, message):
@@ -31,6 +30,10 @@ class DeeplAPI(commands.Cog):
         result = self.kks.convert(translated.text)
         romaji = " ".join([item["hepburn"] for item in result])
         return f"{translated} ({romaji})"
+    
+    def translate_ge(self, message):
+        result = self.translator.translate_text(message, target_lang="DE")
+        return result
     
     
         
