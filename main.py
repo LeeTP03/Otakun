@@ -19,8 +19,6 @@ with open("settings.json", "r") as f:
 bot = commands.Bot(command_prefix=bot_prefix, intents=intents, status=discord.Status.online, activity=discord.Game(name=f"prefix is {bot_prefix}"), help_command=None)
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="w")
 
-
- 
 async def load():
     for filename in os.listdir("./cogs"):
         if filename.endswith(".py"):
@@ -28,24 +26,6 @@ async def load():
 
 async def main():
     await load()
-    
-
-@bot.event
-async def on_ready():
-    print(f"We have logged in as {bot.user}")
-
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-
-    if message.content.startswith("<"):
-        if message.content.endswith(">"):
-            command = bot.get_command('search')
-            await command.invoke
-            await message.channel.send("Hello!")
-    
-    await bot.process_commands(message)
 
 @bot.command()
 async def rcog(ctx, arg):
