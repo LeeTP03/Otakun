@@ -50,8 +50,8 @@ class Manga:
         self.id = self.data["id"]
         self.title = m_attributes["title"]["en"]
         self.description = m_attributes["description"]["en"] if "en" in m_attributes["description"] else ""
-        self.chapter_number = m_attributes["lastChapter"]
-        self.volume_number = m_attributes["lastVolume"]
+        self.chapter_number = "N/A" if m_attributes["lastChapter"] == "" else m_attributes["lastChapter"]
+        self.volume_number = "N/A" if m_attributes["lastVolume"] == "" else m_attributes["lastVolume"]
         self.status = m_attributes["status"]
         self.demographic = m_attributes["publicationDemographic"]
         self.tags = []
@@ -91,6 +91,10 @@ class Manga:
             self.all_chapters.append(Chapter(self.title, i[0], i[1], i[2], self.latest_chapter_link))
     
     def get_latest_link(self):
+        
+        if self.latest_chapter_id == "No Chapters Found":
+            return ["No Chapters Found", "No Chapters Found", "No Chapters Found"]
+        
         r = requests.get(f"{self.api_url}/chapter/{self.latest_chapter_id}")
         if r.json()["data"]["attributes"]["externalUrl"] == None:
             self.latest_chapter_link = f"https://mangadex.org/chapter/{self.latest_chapter_id}"
@@ -124,6 +128,8 @@ class Manga:
         return self.status.capitalize()
 
     def get_demographic(self):
+        if self.demographic == None:
+            return "N/A"
         return self.demographic.capitalize()
 
     def __str__(self):

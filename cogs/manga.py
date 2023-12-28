@@ -28,12 +28,14 @@ class MangaView(View):
                 embed.add_field(name=f"{i + 1}) {data[i].title}", value="", inline=False)
         else:
             self.add_item(Button(label="Open Website", url=data[int(self.selected_option)].get_manga_site()))
-            self.add_item(Button(label="Latest Chapter", url=data[int(self.selected_option)].get_latest_link()[0]))
-            read_here_button = Button(label="Read Here", style=ButtonStyle.blurple)
-            self.add_item(read_here_button)
             
-            mangaCog = self.bot.get_cog("Manga")
-            read_here_button.callback = mangaCog.read_here
+            if data[int(self.selected_option)].get_latest_link()[0] != "No Chapters Found":
+                self.add_item(Button(label="Latest Chapter", url=data[int(self.selected_option)].get_latest_link()[0]))
+                read_here_button = Button(label="Read Here", style=ButtonStyle.blurple)
+                self.add_item(read_here_button)
+            
+                mangaCog = self.bot.get_cog("Manga")
+                read_here_button.callback = mangaCog.read_here
             
                      
             data = data[int(self.selected_option)]
