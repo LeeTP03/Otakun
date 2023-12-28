@@ -8,7 +8,6 @@ deepl==1.16.1
 Deprecated==1.2.14
 discord.py==2.3.2
 frozenlist==1.4.1
-fugashi==1.3.0
 idna==3.6
 jaconv==0.3.4
 jikanpy-v4==1.0.2
@@ -19,7 +18,6 @@ pykakasi==2.2.1
 python-dotenv==1.0.0
 requests==2.31.0
 simplejson==3.19.2
-unidic-lite==1.0.8
 urllib3==2.1.0
 websockets==12.0
 wrapt==1.16.0
