@@ -43,7 +43,7 @@ class JMView(View):
             
             counter = 1
             for sense in dict_data_entries.senses:
-                embed.add_field(name=f"{counter}) {", ".join(i.text for i in sense.gloss)}", value=f"{"misc: " + ", ".join(sense.misc) if sense.misc else ""}", inline=False)
+                embed.add_field(name=f"{counter}) {', '.join(i.text for i in sense.gloss)}", value=f"{'misc: ' + ', '.join(sense.misc) if sense.misc else ''}", inline=False)
                 counter += 1
         else:
             dict_data_names = data.names
