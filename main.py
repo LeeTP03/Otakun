@@ -7,7 +7,7 @@ from discord.ext import commands
 import json
 
 load_dotenv()
-bot_token = os.getenv("BOT_TOKEN")
+bot_token = os.getenv("BOT_DEV_TOKEN")
 
 intents = discord.Intents.default()
 intents.message_content = True

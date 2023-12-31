@@ -1,5 +1,4 @@
 from discord.ext import commands
-import dotenv
 import deepl
 import os
 import pykakasi
