@@ -104,12 +104,15 @@ class Anime(commands.Cog):
     async def anime(self, ctx, *, arg):
         delim = arg.split("~")
         await ctx.send(f"Searching for {delim[0].title()}")
-        api_search = self.bot.get_cog("JikanAPI")
-        
+       
         if len(delim) > 1:
-            await api_search.get_by_title(ctx, delim[0], delim[1])
+            await self.anime_helper(ctx, delim[0], delim[1])
         else:
-            await api_search.get_by_title(ctx, delim[0])
+            await self.anime_helper(ctx, delim[0])
+            
+    async def anime_helper(self, ctx, title, amount=3):
+        api_search = self.bot.get_cog("JikanAPI")
+        await api_search.get_by_title(ctx, title, amount)
        
         
 async def setup(bot):

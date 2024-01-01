@@ -167,21 +167,22 @@ class Manga(commands.Cog):
 
     @commands.command()
     async def manga(self, ctx, *, message):
-        
         delim = message.split("~")
         await ctx.send(f"Searching for {delim[0].title()}")
-        # Getting manga
-        api_fetcher = MangaDexAPI()
+        
         if len(delim) == 2:
-            result = api_fetcher.get_manga(delim[0].strip(), delim[1].strip())
+            await self.manga_helper(ctx, delim[0].strip(), delim[1].strip())
         else:
-            result = api_fetcher.get_manga(delim[0])
-
+            await self.manga_helper(ctx, delim[0])
+    
+    async def manga_helper(self, ctx, title, amount=3):
+        api_fetcher = MangaDexAPI()
+        result = api_fetcher.get_manga(title, amount)
         if result == "No results found":
             await ctx.send("No results found")
             return
-        
-        view = MangaView()
+
+        view  = MangaView()
         view.items = result
         view.bot = self.bot
         self.manga_view = view
@@ -196,7 +197,6 @@ class Manga(commands.Cog):
         view.manga_title = self.manga_data.title
         self.manga_data.get_manga_feed()
         view.items = self.manga_data.all_chapters
-        
         
         chapter_selector = ChapterSelect(self.manga_data.all_chapters)
         
